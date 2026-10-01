@@ -1,0 +1,1269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>GLOBAL AI LEARNING | Code with Bala Krishna</title>
+
+<style>
+
+/* =========================
+   GLOBAL
+========================= */
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#07111f;
+    color:#f8fafc;
+    min-height:100vh;
+}
+
+button,
+input,
+textarea{
+    font-family:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+.hidden{
+    display:none!important;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:#0b1628;
+    border-bottom:1px solid #263b60;
+    box-shadow:0 4px 20px #0005;
+}
+
+.topbar{
+    max-width:1250px;
+    margin:auto;
+    padding:15px 18px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+}
+
+.brand{
+    cursor:pointer;
+}
+
+.brand h1{
+    font-size:24px;
+    color:#38bdf8;
+}
+
+.brand p{
+    font-size:12px;
+    color:#94a3b8;
+}
+
+.top-actions{
+    display:flex;
+    gap:8px;
+}
+
+.icon-btn{
+    border:1px solid #334155;
+    background:#111d31;
+    color:white;
+    width:42px;
+    height:42px;
+    border-radius:10px;
+    font-size:18px;
+}
+
+.icon-btn:hover{
+    background:#1d4ed8;
+}
+
+nav{
+    max-width:1250px;
+    margin:auto;
+    padding:0 18px 14px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+}
+
+nav button{
+    border:1px solid #334155;
+    background:#111d31;
+    color:#e2e8f0;
+    padding:9px 13px;
+    border-radius:8px;
+    font-weight:bold;
+}
+
+nav button:hover,
+nav button.active{
+    background:#2563eb;
+    border-color:#2563eb;
+}
+
+
+/* =========================
+   APP
+========================= */
+
+main{
+    max-width:1250px;
+    margin:auto;
+    padding:25px 18px 60px;
+}
+
+.page{
+    display:none;
+}
+
+.page.active{
+    display:block;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    min-height:440px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:50px 15px;
+}
+
+.hero-content{
+    max-width:850px;
+}
+
+.badge{
+    display:inline-block;
+    background:#172554;
+    color:#7dd3fc;
+    padding:8px 14px;
+    border-radius:30px;
+    margin-bottom:18px;
+    border:1px solid #1e40af;
+}
+
+.hero h2{
+    font-size:52px;
+    line-height:1.1;
+    margin-bottom:20px;
+}
+
+.gradient{
+    background:linear-gradient(90deg,#38bdf8,#818cf8,#c084fc);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+}
+
+.hero p{
+    color:#cbd5e1;
+    font-size:18px;
+    max-width:720px;
+    margin:auto;
+}
+
+.hero-buttons{
+    margin-top:28px;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:12px;
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+.btn{
+    border:none;
+    padding:12px 18px;
+    border-radius:9px;
+    font-weight:bold;
+    color:white;
+    background:#2563eb;
+}
+
+.btn:hover{
+    background:#1d4ed8;
+    transform:translateY(-1px);
+}
+
+.btn.secondary{
+    background:#334155;
+}
+
+.btn.success{
+    background:#15803d;
+}
+
+.btn.danger{
+    background:#b91c1c;
+}
+
+.btn.warning{
+    background:#b45309;
+}
+
+
+/* =========================
+   SECTION TITLE
+========================= */
+
+.section-title{
+    margin:25px 0 18px;
+}
+
+.section-title h2{
+    font-size:30px;
+}
+
+.section-title p{
+    color:#94a3b8;
+    margin-top:5px;
+}
+
+
+/* =========================
+   CARDS
+========================= */
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:18px;
+}
+
+.card{
+    background:#0f1b2e;
+    border:1px solid #263b60;
+    border-radius:15px;
+    padding:20px;
+    transition:.2s;
+}
+
+.card:hover{
+    transform:translateY(-4px);
+    border-color:#38bdf8;
+    box-shadow:0 10px 30px #0004;
+}
+
+.card-icon{
+    font-size:35px;
+    margin-bottom:12px;
+}
+
+.card h3{
+    color:#7dd3fc;
+    margin-bottom:8px;
+}
+
+.card p{
+    color:#cbd5e1;
+    font-size:14px;
+    margin-bottom:15px;
+}
+
+
+/* =========================
+   STAT CARDS
+========================= */
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+    gap:14px;
+    margin:25px 0;
+}
+
+.stat{
+    background:#0f1b2e;
+    border:1px solid #263b60;
+    border-radius:13px;
+    padding:20px;
+    text-align:center;
+}
+
+.stat strong{
+    display:block;
+    font-size:28px;
+    color:#38bdf8;
+}
+
+.stat span{
+    color:#94a3b8;
+    font-size:13px;
+}
+
+
+/* =========================
+   COURSE
+========================= */
+
+.course-header{
+    background:linear-gradient(135deg,#102a56,#172554);
+    padding:25px;
+    border-radius:16px;
+    margin-bottom:20px;
+    border:1px solid #334e7d;
+}
+
+.course-header h2{
+    font-size:32px;
+}
+
+.course-header p{
+    color:#cbd5e1;
+    margin-top:8px;
+}
+
+.progress-wrap{
+    margin-top:18px;
+}
+
+.progress-bg{
+    height:10px;
+    background:#020617;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.progress-bar{
+    height:100%;
+    width:0%;
+    background:linear-gradient(90deg,#38bdf8,#818cf8);
+    transition:.4s;
+}
+
+.progress-text{
+    display:flex;
+    justify-content:space-between;
+    color:#cbd5e1;
+    font-size:13px;
+    margin-top:7px;
+}
+
+
+/* =========================
+   LESSON LIST
+========================= */
+
+.lesson-list{
+    display:grid;
+    gap:10px;
+}
+
+.lesson-item{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+    padding:15px;
+    background:#0f1b2e;
+    border:1px solid #263b60;
+    border-radius:11px;
+}
+
+.lesson-item-left{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.lesson-number{
+    width:38px;
+    height:38px;
+    border-radius:50%;
+    background:#172554;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#7dd3fc;
+    font-weight:bold;
+}
+
+.lesson-item h3{
+    font-size:15px;
+}
+
+.lesson-item p{
+    color:#94a3b8;
+    font-size:12px;
+}
+
+.completed{
+    color:#4ade80;
+}
+
+
+/* =========================
+   LESSON VIEW
+========================= */
+
+.lesson-view{
+    max-width:900px;
+    margin:auto;
+}
+
+.lesson-box{
+    background:#0f1b2e;
+    border:1px solid #263b60;
+    border-radius:16px;
+    padding:28px;
+}
+
+.lesson-box h2{
+    color:#7dd3fc;
+    margin-bottom:12px;
+}
+
+.lesson-box h3{
+    margin-top:22px;
+    margin-bottom:8px;
+    color:#c4b5fd;
+}
+
+.lesson-box p{
+    color:#cbd5e1;
+    margin-bottom:10px;
+}
+
+.lesson-box ul{
+    margin-left:20px;
+    color:#cbd5e1;
+}
+
+.code{
+    background:#020617;
+    border:1px solid #334155;
+    color:#a7f3d0;
+    padding:18px;
+    border-radius:10px;
+    margin:15px 0;
+    white-space:pre-wrap;
+    overflow:auto;
+    font-family:monospace;
+}
+
+.lesson-navigation{
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    margin-top:20px;
+}
+
+
+/* =========================
+   QUIZ
+========================= */
+
+.quiz-card{
+    max-width:800px;
+    margin:auto;
+    background:#0f1b2e;
+    border:1px solid #263b60;
+    padding:25px;
+    border-radius:16px;
+}
+
+.quiz-question{
+    font-size:21px;
+    margin-bottom:20px;
+}
+
+.option{
+    display:block;
+    width:100%;
+    text-align:left;
+    padding:14px;
+    margin:9px 0;
+    background:#111d31;
+    border:1px solid #334155;
+    border-radius:9px;
+    color:white;
+}
+
+.option:hover{
+    background:#172554;
+}
+
+.option.correct{
+    background:#166534;
+    border-color:#4ade80;
+}
+
+.option.wrong{
+    background:#991b1b;
+    border-color:#f87171;
+}
+
+.quiz-result{
+    text-align:center;
+    padding:25px;
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+.search{
+    width:100%;
+    padding:14px;
+    background:#0f172a;
+    color:white;
+    border:1px solid #334155;
+    border-radius:10px;
+    margin:15px 0 20px;
+    outline:none;
+}
+
+.search:focus{
+    border-color:#38bdf8;
+}
+
+
+/* =========================
+   NOTES
+========================= */
+
+.note{
+    background:#0f1b2e;
+    border:1px solid #263b60;
+    border-radius:12px;
+    padding:18px;
+    margin-bottom:12px;
+}
+
+.note h3{
+    color:#7dd3fc;
+}
+
+.note p{
+    color:#cbd5e1;
+}
+
+
+/* =========================
+   PROFILE
+========================= */
+
+.profile-box{
+    max-width:700px;
+    margin:auto;
+    background:#0f1b2e;
+    border:1px solid #263b60;
+    border-radius:16px;
+    padding:25px;
+}
+
+.input{
+    width:100%;
+    padding:13px;
+    background:#020617;
+    color:white;
+    border:1px solid #334155;
+    border-radius:9px;
+    margin:8px 0 15px;
+}
+
+
+/* =========================
+   TOAST
+========================= */
+
+#toast{
+    position:fixed;
+    bottom:25px;
+    right:20px;
+    background:#172554;
+    border:1px solid #38bdf8;
+    color:white;
+    padding:13px 18px;
+    border-radius:10px;
+    display:none;
+    z-index:2000;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    background:#020617;
+    text-align:center;
+    padding:35px 15px;
+    color:#94a3b8;
+    border-top:1px solid #1e293b;
+}
+
+
+/* =========================
+   LIGHT MODE
+========================= */
+
+body.light{
+    background:#f1f5f9;
+    color:#0f172a;
+}
+
+body.light header{
+    background:white;
+    border-color:#cbd5e1;
+}
+
+body.light .card,
+body.light .stat,
+body.light .lesson-item,
+body.light .lesson-box,
+body.light .quiz-card,
+body.light .note,
+body.light .profile-box{
+    background:white;
+    border-color:#cbd5e1;
+}
+
+body.light p,
+body.light .card p,
+body.light .hero p,
+body.light .lesson-box p,
+body.light .lesson-box li,
+body.light .note p{
+    color:#475569;
+}
+
+body.light nav button,
+body.light .icon-btn{
+    background:#f8fafc;
+    color:#0f172a;
+}
+
+body.light .search,
+body.light .input{
+    background:white;
+    color:#0f172a;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:700px){
+
+    .topbar{
+        padding:12px;
+    }
+
+    .brand h1{
+        font-size:18px;
+    }
+
+    .brand p{
+        display:none;
+    }
+
+    nav{
+        padding:0 10px 10px;
+        gap:5px;
+    }
+
+    nav button{
+        font-size:11px;
+        padding:8px 9px;
+    }
+
+    .hero{
+        min-height:380px;
+    }
+
+    .hero h2{
+        font-size:34px;
+    }
+
+    .hero p{
+        font-size:15px;
+    }
+
+    .lesson-item{
+        align-items:flex-start;
+        flex-direction:column;
+    }
+
+    .lesson-navigation{
+        flex-direction:column;
+    }
+
+    .lesson-navigation button{
+        width:100%;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+<div class="topbar">
+
+<div class="brand" onclick="navigate('home')">
+
+<h1>GLOBAL AI LEARNING</h1>
+
+<p>Code with Bala Krishna</p>
+
+</div>
+
+
+<div class="top-actions">
+
+<button class="icon-btn" onclick="toggleTheme()" title="Theme">
+🌙
+</button>
+
+<button class="icon-btn" onclick="navigate('profile')" title="Profile">
+👤
+</button>
+
+</div>
+
+</div>
+
+
+<nav>
+
+<button data-page="home" onclick="navigate('home')">🏠 Home</button>
+
+<button data-page="courses" onclick="navigate('courses')">📚 Courses</button>
+
+<button data-page="ai" onclick="openCourse('ai')">🤖 AI</button>
+
+<button data-page="python" onclick="openCourse('python')">🐍 Python</button>
+
+<button data-page="java" onclick="openCourse('java')">☕ Java</button>
+
+<button data-page="c" onclick="openCourse('c')">💻 C</button>
+
+<button data-page="web" onclick="openCourse('web')">🌐 Web</button>
+
+<button data-page="notes" onclick="navigate('notes')">📝 Notes</button>
+
+<button data-page="quiz" onclick="navigate('quiz')">🧠 Quiz</button>
+
+</nav>
+
+</header>
+
+
+
+<!-- =========================
+     MAIN
+========================= -->
+
+<main>
+
+
+<!-- HOME -->
+
+<section id="page-home" class="page active">
+
+<div class="hero">
+
+<div class="hero-content">
+
+<div class="badge">
+🚀 Learn • Practice • Build
+</div>
+
+<h2>
+Welcome to
+<br>
+<span class="gradient">GLOBAL AI LEARNING</span>
+</h2>
+
+<p>
+A complete learning platform for Programming,
+Web Development and Artificial Intelligence.
+Start from zero and build real skills step by step.
+</p>
+
+<div class="hero-buttons">
+
+<button class="btn" onclick="navigate('courses')">
+📚 Explore Courses
+</button>
+
+<button class="btn secondary" onclick="navigate('quiz')">
+🧠 Take Quiz
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="stats">
+
+<div class="stat">
+<strong id="homeCourses">5</strong>
+<span>Courses</span>
+</div>
+
+<div class="stat">
+<strong id="homeLessons">25+</strong>
+<span>Lessons</span>
+</div>
+
+<div class="stat">
+<strong id="homeCompleted">0</strong>
+<span>Completed</span>
+</div>
+
+<div class="stat">
+<strong id="homeProgress">0%</strong>
+<span>Progress</span>
+</div>
+
+</div>
+
+
+<div class="section-title">
+
+<h2>🔥 Start Learning</h2>
+
+<p>Choose any subject and begin your journey.</p>
+
+</div>
+
+
+<div class="grid" id="homeCourseGrid"></div>
+
+</section>
+
+
+
+<!-- COURSES -->
+
+<section id="page-courses" class="page">
+
+<div class="section-title">
+
+<h2>📚 All Courses</h2>
+
+<p>Choose a course and start learning.</p>
+
+</div>
+
+<div class="grid" id="courseGrid"></div>
+
+</section>
+
+
+
+<!-- COURSE DETAILS -->
+
+<section id="page-course" class="page">
+
+<div id="courseContent"></div>
+
+</section>
+
+
+
+<!-- LESSON -->
+
+<section id="page-lesson" class="page">
+
+<div class="lesson-view">
+
+<div id="lessonContent"></div>
+
+</div>
+
+</section>
+
+
+
+<!-- QUIZ -->
+
+<section id="page-quiz" class="page">
+
+<div class="section-title">
+
+<h2>🧠 Learning Quiz</h2>
+
+<p>Test your programming knowledge.</p>
+
+</div>
+
+<div class="quiz-card" id="quizContainer"></div>
+
+</section>
+
+
+
+<!-- NOTES -->
+
+<section id="page-notes" class="page">
+
+<div class="section-title">
+
+<h2>📝 Learning Notes</h2>
+
+<p>Search through your learning notes.</p>
+
+</div>
+
+<input
+id="noteSearch"
+class="search"
+placeholder="🔎 Search Python, Java, C, AI..."
+oninput="searchNotes()"
+>
+
+<div id="notesContainer"></div>
+
+</section>
+
+
+
+<!-- PROFILE -->
+
+<section id="page-profile" class="page">
+
+<div class="section-title">
+
+<h2>👤 My Profile</h2>
+
+<p>Save your learning information on this device.</p>
+
+</div>
+
+
+<div class="profile-box">
+
+<label>Your Name</label>
+
+<input
+id="profileName"
+class="input"
+placeholder="Enter your name"
+>
+
+
+<label>Your Goal</label>
+
+<input
+id="profileGoal"
+class="input"
+placeholder="Example: Learn Python"
+>
+
+
+<button class="btn" onclick="saveProfile()">
+💾 Save Profile
+</button>
+
+<button class="btn secondary" onclick="resetProgress()">
+♻️ Reset Progress
+</button>
+
+<div id="profileMessage" style="margin-top:15px;color:#4ade80;"></div>
+
+</div>
+
+</section>
+
+
+</main>
+
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<p>GLOBAL AI LEARNING</p>
+
+<p>Code with Bala Krishna 🚀</p>
+
+<p style="margin-top:8px;">
+Learn • Practice • Build • Grow
+</p>
+
+</footer>
+
+
+
+<div id="toast"></div>
+
+
+
+<script>
+
+/* =========================================================
+   COURSE DATABASE
+========================================================= */
+
+const courses = {
+
+ai:{
+    name:"Artificial Intelligence",
+    icon:"🤖",
+    color:"#38bdf8",
+    description:"Learn Artificial Intelligence from basic concepts to Generative AI.",
+    lessons:[
+        {
+            title:"What is Artificial Intelligence?",
+            content:`
+                <h2>🤖 What is AI?</h2>
+                <p>
+                Artificial Intelligence is a field of computer science
+                focused on building systems that can perform tasks
+                associated with human intelligence.
+                </p>
+
+                <h3>Examples</h3>
+                <ul>
+                    <li>Voice assistants</li>
+                    <li>Recommendation systems</li>
+                    <li>Image recognition</li>
+                    <li>Chatbots</li>
+                </ul>
+            `
+        },
+
+        {
+            title:"Machine Learning",
+            content:`
+                <h2>🧠 Machine Learning</h2>
+
+                <p>
+                Machine Learning allows computers to learn patterns
+                from data and use those patterns to make predictions
+                or decisions.
+                </p>
+
+                <h3>Basic Flow</h3>
+
+                <div class="code">
+Data → Training → Model → Prediction
+                </div>
+            `
+        },
+
+        {
+            title:"Neural Networks",
+            content:`
+                <h2>🕸️ Neural Networks</h2>
+
+                <p>
+                Neural networks are models made from connected
+                computational units called neurons.
+                </p>
+
+                <h3>Applications</h3>
+
+                <ul>
+                    <li>Image classification</li>
+                    <li>Speech recognition</li>
+                    <li>Text processing</li>
+                </ul>
+            `
+        },
+
+        {
+            title:"Generative AI",
+            content:`
+                <h2>✨ Generative AI</h2>
+
+                <p>
+                Generative AI systems can generate new content
+                such as text, images, audio and code.
+                </p>
+
+                <h3>Example</h3>
+
+                <div class="code">
+User Prompt
+     ↓
+AI Model
+     ↓
+Generated Content
+                </div>
+            `
+        },
+
+        {
+            title:"AI Project Idea",
+            content:`
+                <h2>🚀 AI Project</h2>
+
+                <p>
+                A beginner project can be a simple AI learning
+                assistant that answers predefined questions.
+                </p>
+
+                <h3>Project Steps</h3>
+
+                <ol>
+                    <li>Create interface</li>
+                    <li>Add questions</li>
+                    <li>Add answers</li>
+                    <li>Add search</li>
+                    <li>Test the application</li>
+                </ol>
+            `
+        }
+    ]
+},
+
+
+python:{
+    name:"Python Programming",
+    icon:"🐍",
+    description:"Learn Python programming from zero to project level.",
+    lessons:[
+        {
+            title:"Python Introduction",
+            content:`
+                <h2>🐍 Python Introduction</h2>
+
+                <p>
+                Python is a high-level programming language known
+                for readable syntax and a large ecosystem.
+                </p>
+
+                <div class="code">
+print("Hello Global AI Learning")
+                </div>
+            `
+        },
+
+        {
+            title:"Variables and Data Types",
+            content:`
+                <h2>📦 Variables</h2>
+
+                <p>
+                Variables store values that programs can use.
+                </p>
+
+                <div class="code">
+name = "Bala"
+age = 18
+height = 5.8
+
+print(name)
+print(age)
+                </div>
+            `
+        },
+
+        {
+            title:"If Else Conditions",
+            content:`
+                <h2>🔀 Conditions</h2>
+
+                <div class="code">
+age = 18
+
+if age >= 18:
+    print("Eligible")
+else:
+    print("Not Eligible")
+                </div>
+            `
+        },
+
+        {
+            title:"Loops",
+            content:`
+                <h2>🔁 Loops</h2>
+
+                <p>
+                Loops repeat a block of code.
+                </p>
+
+                <div class="code">
+for i in range(5):
+    print(i)
+                </div>
+            `
+        },
+
+        {
+            title:"Functions",
+            content:`
+                <h2>⚙️ Functions</h2>
+
+                <p>
+                Functions allow you to create reusable code.
+                </p>
+
+                <div class="code">
+def greet(name):
+    print("Hello", name)
+
+greet("Bala")
+                </div>
+            `
+        }
+    ]
+},
+
+
+java:{
+    name:"Java Programming",
+    icon:"☕",
+    description:"Learn Java basics and object-oriented programming.",
+    lessons:[
+        {
+            title:"Java Introduction",
+            content:`
+                <h2>☕ Java Introduction</h2>
+
+                <p>
+                Java is a general-purpose programming language
+                widely used for software development.
